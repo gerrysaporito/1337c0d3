@@ -1,0 +1,59 @@
+/* 
+ * Tabulation
+ */
+function lengthOfLIS(nums: number[]): number {    
+    let table: number[] = Array(nums.length + 1).fill(1);
+    
+    // Iterate backwards from end of list
+    for (let i = nums.length; i >= 0; --i) {
+        // Iterate forwards from current index
+        for (let j = i + 1; j < nums.length; ++j) {
+            // Check if the current index's value is less than the sliding window's value
+            if (nums[i] < nums[j]) {
+                // Set the current index's value to whichever has the higher count
+                table[i] = Math.max(table[i], table[j] + 1);
+            }
+        }
+    }
+    
+    console.log(table)
+    
+    return Math.max(...table)
+};
+
+/* 
+ * Brute Force
+ */
+function lengthOfLIS(nums: number[]): number {    
+    const helper = (nums: number[], subsequence: number[], currIndex: number): number[] => {
+        if (currIndex >= nums.length) return subsequence;
+        let largestSubsequence = [...subsequence];
+
+        for(let i = currIndex; i < nums.length; ++i) {
+            if (subsequence.length === 0 || subsequence[subsequence.length-1] < nums[i]) {
+                const currSubsequence = helper(nums, [...subsequence, nums[i]], i);
+                if(largestSubsequence.length < currSubsequence.length) {
+                    largestSubsequence = currSubsequence
+                }
+            }
+        }
+        
+        return largestSubsequence
+    }
+    
+    return helper(nums, [], 0).length
+};
+
+
+/* 
+ * Time & Space Complexities
+ */
+// n = length of nums
+
+// Brute:
+// Time: O(n*n^logn)
+// Space: O(n)
+
+// Tabulation
+// Time: O(n^2)
+// Space: O(n)
