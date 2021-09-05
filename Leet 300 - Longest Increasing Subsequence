@@ -1,3 +1,35 @@
+
+/* 
+ * Brute Force
+ */
+function lengthOfLIS(nums: number[]): number {    
+    const helper = (nums: number[], subsequence: number[], currIndex: number): number[] => {
+        // Check if we are at the end of the list
+        if (currIndex >= nums.length) return subsequence;
+        
+        // Set the largest subsequence to the base value (passed down subsequence)
+        let largestSubsequence = [...subsequence];
+
+        // Iterate over nums from the current index to the end of list
+        for(let i = currIndex; i < nums.length; ++i) {
+            // Check if the subsequence is empty OR if the last number in the subsequence is less than the current number
+            if (subsequence.length === 0 || subsequence[subsequence.length-1] < nums[i]) {
+                // Create the new subsequence by recursively calculating the next
+                const currSubsequence = helper(nums, [...subsequence, nums[i]], i);
+                
+                // Compare against the largest seen subsequence and update if necessary
+                if(largestSubsequence.length < currSubsequence.length) {
+                    largestSubsequence = currSubsequence
+                }
+            }
+        }
+        
+        return largestSubsequence
+    }
+    
+    return helper(nums, [], 0).length
+};
+
 /* 
  * Tabulation
  */
@@ -20,30 +52,6 @@ function lengthOfLIS(nums: number[]): number {
     
     return Math.max(...table)
 };
-
-/* 
- * Brute Force
- */
-function lengthOfLIS(nums: number[]): number {    
-    const helper = (nums: number[], subsequence: number[], currIndex: number): number[] => {
-        if (currIndex >= nums.length) return subsequence;
-        let largestSubsequence = [...subsequence];
-
-        for(let i = currIndex; i < nums.length; ++i) {
-            if (subsequence.length === 0 || subsequence[subsequence.length-1] < nums[i]) {
-                const currSubsequence = helper(nums, [...subsequence, nums[i]], i);
-                if(largestSubsequence.length < currSubsequence.length) {
-                    largestSubsequence = currSubsequence
-                }
-            }
-        }
-        
-        return largestSubsequence
-    }
-    
-    return helper(nums, [], 0).length
-};
-
 
 /* 
  * Time & Space Complexities
