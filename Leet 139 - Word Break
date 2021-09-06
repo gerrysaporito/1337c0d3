@@ -22,7 +22,7 @@ function wordBreak(s: string, wordDict: string[], memo={}): boolean {
 /* 
  * Tabulation
  */
-function wordBreak(s: string, wordDict: string[], memo={}): boolean {
+function wordBreak(s: string, wordDict: string[]): boolean {
     let table = new Array(s.length + 1).fill(false);
     table[0] = true;
     
