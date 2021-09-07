@@ -52,5 +52,5 @@ const canJump = (nums: number[], memo={}): boolean => {
 // Space: O(n)
 
 // Tabulation
-// Time: O(m*n)
+// Time: O(n*n)
 // Space: O(n)
