@@ -35,7 +35,7 @@ function maxSubArray(nums: number[]): number {
 /* 
  * Time & Space Complexities
  */
-// n = length nums
+// n = length of nums
 
 // Brute:
 // Time: O(n^2)
