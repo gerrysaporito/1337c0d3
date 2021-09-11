@@ -1,5 +1,5 @@
 /*
- * Two Pointer
+ * Binary Search
  */
 function findMin(nums: number[]): number {
     let left = 0
@@ -32,6 +32,6 @@ function findMin(nums: number[]): number {
 // Time: O(n^2)
 // Space: O(1)
 
-// Two Pointer:
+// Binary Search:
 // Time: O(logn)
 // Space: O(1)
