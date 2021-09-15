@@ -12,6 +12,9 @@
  * }
  */
 
+/*
+ * Depth First Search
+ */
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     if (p === null && q === null) return true;
     if (!p || !q || p.val !== q.val) return false;
