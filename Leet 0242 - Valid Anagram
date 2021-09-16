@@ -1,0 +1,29 @@
+/*
+ * Hashmap
+ */
+function isAnagram(s: string, t: string): boolean {
+    const dict: { [key: string]: number } = {};
+    
+    for (let char of s) {
+        char in dict ? dict[char] += 1 : dict[char] = 1;
+    }
+    
+    for (let char of t) {
+        char in dict ? dict[char] -= 1 : dict[char] = 1;
+    }
+    
+    return Math.max(...Object.values(dict)) === 0;
+};
+
+/* 
+ * Time & Space Complexities
+ */
+// n = length of string
+
+// Brute:
+// Time: O(n^2)
+// Space: O(n)
+
+// Hashmap
+// Time: O(n)
+// Space: O(n)
