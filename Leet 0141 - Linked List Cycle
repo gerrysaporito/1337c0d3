@@ -13,17 +13,17 @@
 /* 
  * Hash Set
  */
-// function hasCycle(head: ListNode | null): boolean {
-//     const visited = new Set();
+function hasCycle(head: ListNode | null): boolean {
+    const visited = new Set();
     
-//     while (head !== null) {
-//         if (visited.has(head)) return true;
-//         visited.add(head)
-//         head = head.next;
-//     }
+    while (head !== null) {
+        if (visited.has(head)) return true;
+        visited.add(head)
+        head = head.next;
+    }
     
-//     return false;
-// };
+    return false;
+};
 
 /*
  * Two Pointer
