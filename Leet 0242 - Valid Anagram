@@ -15,6 +15,26 @@ function isAnagram(s: string, t: string): boolean {
     return Math.max(...Object.values(dict)) === 0;
 };
 
+/*
+ * Sliding Window
+ */
+function isAnagram(s: string, t: string): boolean {
+    const getStringId = (str: string) => {
+        const count = new Array(26).fill(0);
+        
+        for (const char of str.split('')) {
+            count[char.charCodeAt(0) - 'a'.charCodeAt(0)]++
+        }
+        
+        return count.join(',')
+    }
+    
+    const sId = getStringId(s);
+    const tId = getStringId(t);
+    
+    return sId === tId;
+};
+
 /* 
  * Time & Space Complexities
  */
@@ -25,5 +45,9 @@ function isAnagram(s: string, t: string): boolean {
 // Space: O(n)
 
 // Hashmap
+// Time: O(n)
+// Space: O(n)
+
+// Sliding Window
 // Time: O(n)
 // Space: O(n)
