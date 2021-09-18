@@ -34,7 +34,7 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 /* 
  * Time & Space Complexities
  */
-// n = length of string
+// n = number of nodes
 
 // Two Pointer:
 // Time: O(n)
