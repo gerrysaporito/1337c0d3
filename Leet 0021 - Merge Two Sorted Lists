@@ -14,16 +14,6 @@
  * Iteration
  */
 function mergeTwoLists(l1: ListNode | null, l2: ListNode | null): ListNode | null {
-    const insertAhead = (curr: ListNode, addition: ListNode) => {
-        const newL1 = curr.next;
-        const newL2 = addition.next;
-
-        curr.next = addition;
-        addition.next = newL1;
-        
-        return [newL1, newL2];
-    }
-    
     let tail = new ListNode();
     const head = tail;
     
