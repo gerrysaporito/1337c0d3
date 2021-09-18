@@ -25,7 +25,7 @@ function reverseList(head: ListNode | null): ListNode | null {
 /* 
  * Time & Space Complexities
  */
-// n = length of string
+// n = number of nodes
 
 // Brute:
 // Time: O(n)
