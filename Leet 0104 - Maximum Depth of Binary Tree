@@ -64,7 +64,7 @@ function maxDepth(root: TreeNode | null): number {
 };
 
 /*
- * Recursive
+ * Recursion
  */
 function maxDepth(root: TreeNode | null): number {
     if (root === null) return 0;
@@ -85,6 +85,6 @@ function maxDepth(root: TreeNode | null): number {
 // Time: 0(n)
 // Space: 0(n)
 
-// Recursive
+// Recursion
 // Time: 0(n)
 // Space: 0(n)
