@@ -13,12 +13,63 @@
  */
 
 /*
- * Depth First Search
+ * Iterative - Breadth First Search
+ */
+function maxDepth(root: TreeNode | null): number {
+    const queue = [root];
+    const depths = [1];
+    
+    let depth = 0;
+    
+    while (queue.length) {
+        const node = queue.shift();
+        const currentDepth = depths.shift();
+        
+        if (node) {
+            depth = Math.max(depth, currentDepth);
+            
+            queue.push(node.left);
+            depths.push(currentDepth + 1);
+            queue.push(node.right);
+            depths.push(currentDepth + 1);
+        }
+    }
+    
+    return depth;
+};
+
+/*
+ * Iterative - Depth First Search
+ */
+function maxDepth(root: TreeNode | null): number {
+    const stack = [root];
+    const depths = [1];
+    
+    let depth = 0;
+    
+    while (stack.length) {
+        const node = stack.pop();
+        const currentDepth = depths.pop();
+        
+        if (node) {
+            depth = Math.max(depth, currentDepth);
+            stack.push(node.left);
+            depths.push(currentDepth + 1)
+            stack.push(node.right);   
+            depths.push(currentDepth + 1);
+        }
+    }
+    
+    return depth;
+};
+
+/*
+ * Recursive
  */
 function maxDepth(root: TreeNode | null): number {
     if (root === null) return 0;
 
-    return Math.max(1 + maxDepth(root.left), 1 + maxDepth(root.right));
+    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 };
 
 /*
@@ -26,6 +77,14 @@ function maxDepth(root: TreeNode | null): number {
  */
 // n = max depth of tree
 
-// Depth First Search
-// Time: 0(2^n)
+// Iteration - Breadth First Search
+// Time: 0(n)
+// Space: 0(n)
+
+// Iteration - Depth First Search
+// Time: 0(n)
+// Space: 0(n)
+
+// Recursive
+// Time: 0(n)
 // Space: 0(n)
