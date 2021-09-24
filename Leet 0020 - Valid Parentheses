@@ -32,6 +32,6 @@ function isValid(s: string): boolean {
 // Time: O(n*n)
 // Space: O(1)
 
-// Hashmap
+// Stack
 // Time: O(n)
 // Space: O(n)
