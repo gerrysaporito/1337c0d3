@@ -13,7 +13,7 @@
  */
 
 /*
- * Recursive
+ * Recursion
  */
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     if (preorder.length === 0 || inorder.length === 0) return null;
@@ -29,8 +29,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
 /* 
  * Time & Space Complexities
  */
-// n = length or list
+// n = length of list
 
-// Recursive:
+// Recursion:
 // Time: O(n)
 // Space: O(n)
