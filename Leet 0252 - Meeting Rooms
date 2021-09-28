@@ -1,0 +1,25 @@
+function canAttendMeetings(intervals: number[][]): boolean {
+    const sortedIntervals = intervals.sort((a,b) => a[0]-b[0])
+    
+    for (let i = 1; i < sortedIntervals.length; ++i) {
+        let i1 = sortedIntervals[i-1];
+        let i2 = sortedIntervals[i];
+        
+        if (i2[0] < i1[1]) return false
+    }
+    
+    return true;
+};
+
+/* 
+ * Time & Space Complexities
+ */
+// n = length of intervals
+
+// Brute:
+// Time: O(n^2)
+// Space: O(1)
+
+// Sorted:
+// Time: O(nlogn)
+// Space: O(1)
