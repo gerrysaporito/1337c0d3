@@ -1,5 +1,5 @@
 /*
- * Greedy
+ * Sorting
  */
 function insert(intervals: number[][], newInterval: number[]): number[][] {
     const insertNewInterval = (intervals: number[][], newInterval: number[]) => {
@@ -40,6 +40,6 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
  */
 // n = length of intervals
 
-// Greedy:
+// Sorting:
 // Time: O(n)
 // Space: O(n)
