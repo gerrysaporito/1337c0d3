@@ -41,5 +41,5 @@ function insert(intervals: number[][], newInterval: number[]): number[][] {
 // n = length of intervals
 
 // Sorting:
-// Time: O(n)
+// Time: O(nlogn)
 // Space: O(n)
