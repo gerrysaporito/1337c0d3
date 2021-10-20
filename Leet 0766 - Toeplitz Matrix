@@ -1,0 +1,30 @@
+/* 
+ * Recursion
+ */
+function isToeplitzMatrix(matrix: number[][]): boolean {
+    const checkDiagonal = (row: number, col: number, val: number): boolean => {
+        const rowWithinBounds = row >= 0 && row < matrix.length;
+        const colWithinBounds = col >= 0 && col < matrix[0].length;
+        if (!rowWithinBounds || !colWithinBounds) return true;
+        if (matrix[row][col] !== val) return false;
+        return checkDiagonal(row+1, col+1, val);
+    }
+    
+    for (let i = 0; i < matrix.length; ++i) if(!checkDiagonal(i, 0, matrix[i][0])) return false;
+    for (let i = 0; i < matrix[0].length; ++i) if(!checkDiagonal(0, i, matrix[0][i])) return false;
+    return true
+};
+
+/* 
+ * Time & Space Complexities
+ */
+// n = number of rows
+// m = number of columns
+
+// Brute:
+// Time: O(n^2)
+// Space: O(1)
+
+// Recursion:
+// Time: O(n+m)
+// Space: O(sqrt(n^2+m^2))
