@@ -40,7 +40,6 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
 // n = number of courses
 // r = number of reqs
 
-
 // Topological Sort:
 // Time: O(n+r)
-// Space: O(N)
+// Space: O(n)
