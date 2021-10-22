@@ -1,3 +1,6 @@
+/* 
+ * Topological Sort
+ */
 function findOrder(numCourses: number, prerequisites: number[][]): number[] {
     const generateAdjList = (prerequisites: number[][]) => {
         const adjList = {};
